@@ -13,8 +13,7 @@ def home_page(request):
     return render(request, 'home.html', {'items': todos})
 
 def view_list(request):
-    print('*'*20, "In view_list")
     items = Item.objects.all()
     todos = [ '{i}: {s}'.format(i=i, s=s.text)
         for i, s in enumerate(items, 1)]
-    return render(request, 'home.html', {'items': todos})
+    return render(request, 'list.html', {'items': todos})
